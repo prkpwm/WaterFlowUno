@@ -2,7 +2,7 @@
 
 const int RELAY_PIN = 7;
 const int SOIL_MOISTURE_PIN = 6;
-const int WORKING_TIME_THRESHOLD = 6000;
+const int WORKING_TIME_THRESHOLD = 60000;
 
 unsigned long workingStartTime = 0;
 
