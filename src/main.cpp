@@ -2,7 +2,7 @@
 
 const int RELAY_PIN = 7;
 const int SOIL_MOISTURE_PIN = 6;
-const int WORKING_TIME_THRESHOLD = 60000;
+const int WORKING_TIME_THRESHOLD = 6000;
 
 unsigned long workingStartTime = 0;
 
@@ -21,6 +21,7 @@ void loop()
 {
 
   int soilMoisture = digitalRead(SOIL_MOISTURE_PIN);
+  Serial.println(soilMoisture);
 
   if (soilMoisture == LOW)
   {
@@ -29,6 +30,7 @@ void loop()
   }
   else if (millis() - workingStartTime < WORKING_TIME_THRESHOLD)
   {
+    Serial.println(millis() - workingStartTime);
     // Do nothing while waiting
   }
   else
@@ -36,7 +38,7 @@ void loop()
     relayHandler(RELAY_PIN, HIGH);
   }
 
-  delay(200);
+  delay(1000);
 }
 
 void relayHandler(int relayPin, int relayState)
