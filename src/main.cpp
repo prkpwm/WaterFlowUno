@@ -38,3 +38,8 @@ void loop()
 
   delay(200);
 }
+
+void relayHandler(int relayPin, int relayState)
+{
+  digitalWrite(relayPin, relayState);
+}
